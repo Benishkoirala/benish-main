@@ -816,9 +816,12 @@ I am an MBA graduate from the School of Management, Tribhuvan University, specia
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+  <i class="bi bi-arrow-up-short"></i>
+</a>
 
-  <!-- Preloader -->
+<!-- Preloader -->
+
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
@@ -835,6 +838,23 @@ I am an MBA graduate from the School of Management, Tribhuvan University, specia
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+  const scrollTopBtn = document.getElementById("scroll-top");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {  
+      scrollTopBtn.classList.add("show"); // show after 300px scroll
+    } else {
+      scrollTopBtn.classList.remove("show");
+    }
+  });
+
+  scrollTopBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
 
 </body>
 
