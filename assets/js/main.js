@@ -225,6 +225,8 @@
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
+})();
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.navigation-links');
@@ -240,4 +242,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-})();
