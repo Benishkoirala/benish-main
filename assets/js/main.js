@@ -227,18 +227,3 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.navigation-links');
-
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', function() {
-            // Toggle the 'is-open' class on the links container
-            navLinks.classList.toggle('is-open');
-
-            // Update the accessibility attribute (ARIA)
-            const isExpanded = navLinks.classList.contains('is-open');
-            menuToggle.setAttribute('aria-expanded', isExpanded);
-        });
-    }
-});
