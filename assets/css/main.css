@@ -1273,18 +1273,3 @@ section,
 .starter-section {
   /* Add your styles here */
 }
-.menu-toggle {
-    /* Hide the button by default on larger screens */
-    display: none;
-}
-
-.navigation-links {
-    /* Menu links are always visible on desktop */
-    display: block; 
-}
-
-/* Add styling for your sidebar/navigation links here */
-.sidebar-menu {
-    /* e.g., width: 250px; height: 100vh; */
-}
-
