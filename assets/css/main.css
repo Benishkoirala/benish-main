@@ -1273,5 +1273,55 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+.menu-toggle {
+    /* Hide the button by default on larger screens */
+    display: none;
+}
 
+.navigation-links {
+    /* Menu links are always visible on desktop */
+    display: block; 
+}
 
+/* Add styling for your sidebar/navigation links here */
+.sidebar-menu {
+    /* e.g., width: 250px; height: 100vh; */
+}
+
+@media (max-width: 768px) {
+    /* 1. Show the toggle button */
+    .menu-toggle {
+        display: block;
+        /* Position it clearly, maybe in the top-right corner */
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        /* Basic button styling */
+        background: none;
+        border: none;
+        font-size: 24px; /* Make the icon a good size */
+        cursor: pointer;
+        z-index: 1001; /* Ensure it's above other content */
+    }
+
+    /* 2. Hide the navigation links by default */
+    .navigation-links {
+        /* This is the key: hide the links when the menu is closed */
+        display: none; 
+        /* You might want to style it to slide in, but a simple display: none works */
+        position: absolute;
+        width: 100%;
+        /* Other styling to make it look good as an overlay */
+    }
+
+    /* 3. Style for when the menu is *open* */
+    .navigation-links.is-open {
+        /* This class will be added by JavaScript when the toggle is clicked */
+        display: block; 
+    }
+
+    /* 4. Adjust your main sidebar container if necessary */
+    .sidebar-menu {
+        /* On mobile, it might be just a thin bar at the top or completely hidden */
+    }
+}
