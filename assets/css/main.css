@@ -1288,40 +1288,74 @@ section,
     /* e.g., width: 250px; height: 100vh; */
 }
 
-@media (max-width: 768px) {
-    /* 1. Show the toggle button */
-    .menu-toggle {
-        display: block;
-        /* Position it clearly, maybe in the top-right corner */
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        /* Basic button styling */
-        background: none;
-        border: none;
-        font-size: 24px; /* Make the icon a good size */
-        cursor: pointer;
-        z-index: 1001; /* Ensure it's above other content */
-    }
+/* ---------------------------------------------------- */
+/* 1. MOBILE NAV TOGGLE BUTTON STYLING (The ☰ icon)      */
+/* ---------------------------------------------------- */
+.mobile-nav-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9998; /* High z-index to be on top of everything */
+    border: 0;
+    background: #007bff; /* Example background color */
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    display: none; /* Hidden by default on desktop */
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
 
-    /* 2. Hide the navigation links by default */
-    .navigation-links {
-        /* This is the key: hide the links when the menu is closed */
-        display: none; 
-        /* You might want to style it to slide in, but a simple display: none works */
-        position: absolute;
-        width: 100%;
-        /* Other styling to make it look good as an overlay */
-    }
+.mobile-nav-toggle i {
+    font-size: 24px;
+}
 
-    /* 3. Style for when the menu is *open* */
-    .navigation-links.is-open {
-        /* This class will be added by JavaScript when the toggle is clicked */
-        display: block; 
+/* ---------------------------------------------------- */
+/* 2. MEDIA QUERY: APPLY MOBILE STYLES (Screen < 992px) */
+/* ---------------------------------------------------- */
+@media (max-width: 992px) {
+    /* Show the toggle button on mobile */
+    .mobile-nav-toggle {
+        display: flex; 
     }
+    
+    /* Initially hide the sidebar menu on mobile */
+    .navmenu {
+        position: fixed;
+        left: -300px; /* Slide it off-screen to the left */
+        top: 0;
+        bottom: 0;
+        width: 300px; /* The width of the sliding menu */
+        background: #000; /* Use your existing dark background */
+        overflow-y: auto;
+        transition: 0.4s;
+        z-index: 9997;
+    }
+    
+    /* Make the entire content slightly darker when the menu is open (Optional Overlay) */
+    body.mobile-nav-active:before {
+        content: "";
+        position: fixed;
+        background: rgba(0, 0, 0, 0.8);
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 9996;
+    }
+}
 
-    /* 4. Adjust your main sidebar container if necessary */
-    .sidebar-menu {
-        /* On mobile, it might be just a thin bar at the top or completely hidden */
-    }
+/* ---------------------------------------------------- */
+/* 3. ACTIVE STATE (The menu is open)                   */
+/* ---------------------------------------------------- */
+/* Move the sidebar into view when the body has this class */
+body.mobile-nav-active .navmenu {
+    left: 0; /* Slide it back into view */
+}
+
+/* Change the hamburger icon to a close (X) icon */
+body.mobile-nav-active .mobile-nav-toggle i::before {
+    content: "\f2d8"; /* Bootstrap Icons 'x-lg' or similar close icon code */
 }
